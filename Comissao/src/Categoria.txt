@@ -1,0 +1,2 @@
+codigo;nome;precoComissao
+001;vestuario;10

@@ -21,7 +21,7 @@ public class ZonaVenda {
 		this.nome = campos[2];
 		
 		String caminhoRegiaoVenda = "./src/regiaoVenda.txt";
-		int indiceCampoChave1 = 1;
+		indiceCampoChave = 1;
 		if(uf.equals("SP") || uf.equals("RJ") || uf.equals("MG") || uf.equals("ES")) {
 			valorChave = "Sudeste";
 		}else {
@@ -32,7 +32,7 @@ public class ZonaVenda {
 	}
 	@Override
 	public String toString() {
-		return "ZonaVenda [uf=" + uf + ", nome=" + nome + ", RegiaoVenda=" + regiao + "]";
+		return "ZonaVenda [UF = " + uf + ", Nome = " + nome + ", Regiao de venda = " + regiao + "]";
 	}
 
 }

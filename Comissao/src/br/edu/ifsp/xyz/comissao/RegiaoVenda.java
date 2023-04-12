@@ -32,8 +32,8 @@ public class RegiaoVenda {
 
 	@Override
 	public String toString() {
-		return "RegiaoVenda [codigo=" + codigo + ", nome=" + nome + ", zonas=" + Arrays.toString(zonas)
-				+ ", representante=" + representante + "]";
+		return "RegiaoVenda [Código = " + codigo + ", Nome = " + nome + ", Zonas = " + Arrays.toString(zonas)
+				+ ", Representante = " + representante + "]";
 	}	
 	
 }

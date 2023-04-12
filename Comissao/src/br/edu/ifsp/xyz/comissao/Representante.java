@@ -25,7 +25,7 @@ public class Representante {
 
 	@Override
 	public String toString() {
-		return "Representante [codigo=" + codigo + ", nome=" + nome + ", regiao=" + regiao + "]";
+		return "Representante [Código = " + codigo + ", Nome = " + nome + ", Região = " + regiao + "]";
 	}
 	
 	

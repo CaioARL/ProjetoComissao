@@ -28,7 +28,7 @@ public class Vendedor {
 
 	@Override
 	public String toString() {
-		return "Vendedor [codigo=" + codigo + ", nome=" + nome + ", zonaVenda=" + zonaVenda + "]";
+		return "Vendedor [Código = " + codigo + ", Nome = " + nome + ", Zona de venda = " + zonaVenda + "]";
 	}
 	
 		

@@ -1,17 +1,39 @@
 package br.edu.ifsp.xyz.comissao;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import br.edu.ifsp.xyz.leitor.Leitor;
+
 public class RegiaoVenda {
 
 	private int codigo;
 	private String nome;
-	private ZonaVenda[] zonas;
+	private String[] zonas;
 	private Representante representante;
 	
-	public RegiaoVenda(int codigo, String nome, ZonaVenda[] zonas, Representante representante) {
-		this.codigo = codigo;
-		this.nome = nome;
-		this.zonas = zonas;
-		this.representante = representante;
+	public RegiaoVenda(String caminho, int indiceCampoChave, String valorChave) throws Exception {
+		Leitor leitor = new Leitor(caminho, indiceCampoChave, valorChave);
+		ArrayList<String> regioes = leitor.conteudo();
+		String regiao = regioes.get(0);
+		System.out.println(regiao);
+		String[] campos = regiao.split(";");
+		
+		this.codigo = Integer.parseInt(campos[0]);
+		this.nome = campos[1];
+		
+		this.zonas = campos[2].split(",");
+		
+		String caminhoRepresentante = "./src/Representante.txt";
+		indiceCampoChave = 1;
+		valorChave = nome;
+		this.representante = new Representante(caminhoRepresentante, indiceCampoChave, valorChave);
+	}
+
+	@Override
+	public String toString() {
+		return "RegiaoVenda [codigo=" + codigo + ", nome=" + nome + ", zonas=" + Arrays.toString(zonas)
+				+ ", representante=" + representante + "]";
 	}	
 	
 }

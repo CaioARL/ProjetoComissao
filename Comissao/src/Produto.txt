@@ -1,3 +1,7 @@
-codigo;descricao;precoBase
-01;tenis;236,70
-02;sapato;259,99;
+codigo;descricao;precoBase;idCategoria
+AER45;camisaAzul;25.00;1
+AER46;camisaNike;60.50;1
+AER47;camisaAdidas;53.99;1
+AER48;camisaPuma;51.00;1
+BCV89;camisaPreta;25.00;1
+VCB03;bolaFutebol;70;2

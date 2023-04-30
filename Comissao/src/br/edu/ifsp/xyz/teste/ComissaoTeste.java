@@ -31,12 +31,12 @@ public class ComissaoTeste {
 		int i = 0;
 		for (Pedido pedido : pedidos) {
 			i++;
-			System.out.println("\n-->Pedido " + i);
+			System.out.printf("\n-->%dº Pedido\n", i);
 			System.out.println("Id: " + pedido.getIdPedido());
 			System.out.println("Data: " + pedido.getDataPedido());
 			System.out.printf("Valor: " + "R$%.2f\n", pedido.getValor());
 			ItemPedido[] itens = pedido.getItensPedidos();
-			System.out.println("-->Itens");
+			System.out.println("-->Item Pedido");
 			for (ItemPedido item : itens) {
 				System.out.println("Id: " + item.getId());
 				System.out.println("Quantidade de produtos: " + item.getQtProduto());

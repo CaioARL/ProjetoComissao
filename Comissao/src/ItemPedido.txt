@@ -1,2 +1,4 @@
-qtdProduto;preco
-2;259,99
+id;idPedido;qtdProduto;;idProduto
+1;TKL2;3;AER45,BCV89,AER46
+2;GMJ0;2;AER46,VCB03
+3;JFP4;2;AER47,AER48

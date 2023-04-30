@@ -4,18 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import br.edu.ifsp.xyz.leitor.Leitor;
-import br.edu.ifsp.xyz.util.Data;
 
 public class Cliente {
 	private String cpf;
 	private String nome;
 	private Pedido[] pedidos;
+	private Vendedor vendedor;
 	
 	public Cliente(String caminho, int chave, String valorChave) throws Exception {
 		Leitor leitor = new Leitor(caminho, chave, valorChave);
 		ArrayList<String> clientes = leitor.conteudo();
 		String cliente = clientes.get(0);
-		System.out.println(cliente);
 		String[] campos = cliente.split(";");
 		this.cpf = campos[0];
 		this.nome = campos[1];
@@ -23,28 +22,49 @@ public class Cliente {
 		String caminhoPedido = "./src/Pedido.txt";
         int chavePedido = 1;
         String valorChavePedido = this.cpf;
-		leitor = new Leitor(caminhoPedido, chavePedido, valorChavePedido);
-		ArrayList<String> pedidos = leitor.conteudo();
-		int qtPedidos = pedidos.size();
-		this.pedidos = new Pedido[qtPedidos]; 
-		int indicePedido = 0;
-		for (String pedidoAux : pedidos) {
-			 campos = pedidoAux.split(";");
-			 int idPedido = Integer.parseInt(campos[0]);
-		     String cpf = campos[1];
-		     String[] campoData = campos[2].split("/");
-		     int dia = Integer.parseInt(campoData[0]);
-		     int mes = Integer.parseInt(campoData[1]);
-		     int ano = Integer.parseInt(campoData[2]);
-		     Data dataPedido = new Data(dia,mes,ano);
-		     double valor = Double.parseDouble(campos[3]);
-		     Pedido pedido = new Pedido(idPedido,cpf,dataPedido,valor);
-		     this.pedidos[indicePedido] = pedido;
-		     indicePedido =+ 1;
+
+        Pedido pedido = new Pedido();
+        int indice = pedido.getIndicePedido(caminhoPedido, chavePedido, valorChavePedido);
+        
+        this.pedidos = new Pedido[indice];
+        for (int i = 0; i < indice; i++) {
+        	pedidos[i] = new Pedido(caminhoPedido, chavePedido, valorChavePedido, i);
 		}
+        String caminhoVendedor = "./src/Vendedor.txt";
+        chavePedido = 0;
+        valorChavePedido = campos[2];
+        this.vendedor = new Vendedor(caminhoVendedor, chavePedido, valorChavePedido);
+        
 	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public Pedido[] getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(Pedido[] pedidos) {
+		this.pedidos = pedidos;
+	}
+	public Vendedor getVendedor() {
+		return vendedor;
+	}
+	public void setVendedor(Vendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+	
 	@Override
 	public String toString() {
-		return "Cliente [cpf=" + cpf + ", nome=" + nome + ", pedidos=" + Arrays.toString(pedidos) + "]";
+		return "Cliente [cpf=" + cpf + ", nome=" + nome + '\n' +  Arrays.toString(pedidos) + '\n' + vendedor + "]";
 	}
+	
 }

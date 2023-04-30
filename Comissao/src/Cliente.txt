@@ -1,3 +1,3 @@
-cpf;nome
-123;Joao da Silva
-234;Pedro da Silva
+cpf;nome;idVendedor
+929.286.900-00;Joao da Silva;111
+665.979.310-09;Pedro da Silva;222

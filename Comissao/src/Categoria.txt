@@ -1,2 +1,3 @@
-codigo;nome;precoComissao
-001;vestuario;10
+codigo;nome;ComissaoVendedor;comissaoRepresentante
+1;vestuario;10;2.5
+2;esportes;5;1.5

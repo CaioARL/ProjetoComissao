@@ -1,5 +1,8 @@
 package br.edu.ifsp.xyz.util;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Data {
 	private final int dia;
 	private final int mes;
@@ -97,7 +100,9 @@ public class Data {
 
 	@Override
 	public String toString() {
-		return this.dia + "/" + this.mes + "/" + this.ano;
+		LocalDate data = LocalDate.of(this.ano, this.mes, this.dia);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return data.format(formatter);
 	}
     
 }
